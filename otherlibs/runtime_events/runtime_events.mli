@@ -135,55 +135,57 @@ Live blocks of a Domain's major heap pools.
 (**
 Live blocks of a Domain's major heap large allocations.
 @since 5.1 *)
-| EV_C_MAJOR_HEAP_WORDS
+| EV_C_MAJOR_ALLOCATED_ON_HEAP
 (**
-Major heap size in {b words} of a Domain.
-@since 5.3 *)
-| EV_C_MAJOR_ALLOCATED_WORDS
+Allocations to the on-heap part of the major heap of this Domain in
+{b words}, since the last major slice.
+@since 5.6 *)
+| EV_C_MAJOR_ALLOCATED_OFF_HEAP
 (**
-Allocations to the major heap of this Domain in {b words}, since the last major
-slice.
-@since 5.3
-*)
-| EV_C_MAJOR_ALLOCATED_WORK
+Allocations to off-heap memory accounted to this Domain in {b words},
+since the last major slice.
+@since 5.6 *)
+| EV_C_MAJOR_ALLOCATED_EPHE
 (**
-The amount of major GC 'work' needing to be done as a result of allocations to
-the major heap of this Domain in {b words}, since the last major slice.
-@since 5.3
-*)
-| EV_C_MAJOR_DEPENDENT_WORK
-(**
-The amount of major GC 'work' needing to be done as a result of dependent
-allocations to the major heap of this Domain in words, since the last major
-slice. Dependent memory is non-heap memory that depends on heap memory being
-collected in order to be freed.
-@since 5.3
-*)
-| EV_C_MAJOR_EXTRA_WORK
-(**
-The amount of major GC 'work' needing to be done as a result of extra
-non-memory resources that are dependent on heap memory being collected in order
-to be freed.
-@since 5.3
-*)
-| EV_C_MAJOR_WORK_COUNTER
-(**
-The global amount of major GC 'work' done by all domains since the program
-began.
-@since 5.3
-*)
-| EV_C_MAJOR_ALLOC_COUNTER
-(**
-The global {b words} of major GC allocations done by all domains since the
-program began.
-@since 5.3
-*)
-| EV_C_MAJOR_SLICE_TARGET
-(**
-The target amount of global 'work' that should be done by all domains at the
-end of the major slice (see EV_C_MAJOR_SLICE_COUNTER).
-@since 5.3
-*)
+Allocations of ephemeron memory accounted to this Domain in {b words},
+since the last major slice.
+@since 5.6 *)
+| EV_C_MAJOR_ALLOCATED_DIRECT_ON_HEAP
+(** Direct-phase on-heap allocations since the last major slice. @since 5.6 *)
+| EV_C_MAJOR_ALLOCATED_DIRECT_OFF_HEAP
+(** Direct-phase off-heap allocations since the last major slice. @since 5.6 *)
+| EV_C_MAJOR_ALLOCATED_DIRECT_EPHE
+(** Direct-phase ephemeron allocations since the last major slice. @since 5.6 *)
+| EV_C_MAJOR_ALLOCATED_SUSPENDED_ON_HEAP
+(** Suspended-phase on-heap allocations since the last major slice. @since 5.6 *)
+| EV_C_MAJOR_ALLOCATED_SUSPENDED_OFF_HEAP
+(** Suspended-phase off-heap allocations since the last major slice. @since 5.6 *)
+| EV_C_MAJOR_ALLOCATED_SUSPENDED_EPHE
+(** Suspended-phase ephemeron allocations since the last major slice. @since 5.6 *)
+| EV_C_MAJOR_ALLOCATED_RESUMED_ON_HEAP
+(** Resumed-phase on-heap allocations since the last major slice. @since 5.6 *)
+| EV_C_MAJOR_ALLOCATED_RESUMED_OFF_HEAP
+(** Resumed-phase off-heap allocations since the last major slice. @since 5.6 *)
+| EV_C_MAJOR_ALLOCATED_RESUMED_EPHE
+(** Resumed-phase ephemeron allocations since the last major slice. @since 5.6 *)
+| EV_C_MAJOR_WORK_ON_HEAP
+(** Major GC work needed for on-heap allocations, in words. @since 5.6 *)
+| EV_C_MAJOR_WORK_OFF_HEAP
+(** Major GC work needed for off-heap allocations, in words. @since 5.6 *)
+| EV_C_MAJOR_WORK_EPHE
+(** Major GC work needed for ephemeron allocations, in words. @since 5.6 *)
+| EV_C_MAJOR_ALLOC_ON_HEAP
+(** Global counter of on-heap major allocations across all domains. @since 5.6 *)
+| EV_C_MAJOR_ALLOC_OFF_HEAP
+(** Global counter of off-heap major allocations across all domains. @since 5.6 *)
+| EV_C_MAJOR_ALLOC_EPHE
+(** Global counter of ephemeron major allocations across all domains. @since 5.6 *)
+| EV_C_MAJOR_SLICE_TARGET_ON_HEAP
+(** Slice target work for on-heap allocations. @since 5.6 *)
+| EV_C_MAJOR_SLICE_TARGET_OFF_HEAP
+(** Slice target work for off-heap allocations. @since 5.6 *)
+| EV_C_MAJOR_SLICE_TARGET_EPHE
+(** Slice target work for ephemeron allocations. @since 5.6 *)
 | EV_C_MAJOR_SLICE_BUDGET
 (**
 The budget in 'work' that a domain has to do during the major slice.

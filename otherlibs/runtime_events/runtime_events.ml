@@ -33,14 +33,27 @@ type runtime_counter =
 | EV_C_MAJOR_HEAP_POOL_FRAG_WORDS
 | EV_C_MAJOR_HEAP_POOL_LIVE_BLOCKS
 | EV_C_MAJOR_HEAP_LARGE_BLOCKS
-| EV_C_MAJOR_HEAP_WORDS
-| EV_C_MAJOR_ALLOCATED_WORDS
-| EV_C_MAJOR_ALLOCATED_WORK
-| EV_C_MAJOR_DEPENDENT_WORK
-| EV_C_MAJOR_EXTRA_WORK
-| EV_C_MAJOR_WORK_COUNTER
-| EV_C_MAJOR_ALLOC_COUNTER
-| EV_C_MAJOR_SLICE_TARGET
+| EV_C_MAJOR_ALLOCATED_ON_HEAP
+| EV_C_MAJOR_ALLOCATED_OFF_HEAP
+| EV_C_MAJOR_ALLOCATED_EPHE
+| EV_C_MAJOR_ALLOCATED_DIRECT_ON_HEAP
+| EV_C_MAJOR_ALLOCATED_DIRECT_OFF_HEAP
+| EV_C_MAJOR_ALLOCATED_DIRECT_EPHE
+| EV_C_MAJOR_ALLOCATED_SUSPENDED_ON_HEAP
+| EV_C_MAJOR_ALLOCATED_SUSPENDED_OFF_HEAP
+| EV_C_MAJOR_ALLOCATED_SUSPENDED_EPHE
+| EV_C_MAJOR_ALLOCATED_RESUMED_ON_HEAP
+| EV_C_MAJOR_ALLOCATED_RESUMED_OFF_HEAP
+| EV_C_MAJOR_ALLOCATED_RESUMED_EPHE
+| EV_C_MAJOR_WORK_ON_HEAP
+| EV_C_MAJOR_WORK_OFF_HEAP
+| EV_C_MAJOR_WORK_EPHE
+| EV_C_MAJOR_ALLOC_ON_HEAP
+| EV_C_MAJOR_ALLOC_OFF_HEAP
+| EV_C_MAJOR_ALLOC_EPHE
+| EV_C_MAJOR_SLICE_TARGET_ON_HEAP
+| EV_C_MAJOR_SLICE_TARGET_OFF_HEAP
+| EV_C_MAJOR_SLICE_TARGET_EPHE
 | EV_C_MAJOR_SLICE_BUDGET
 | EV_C_MINOR_ALLOCATED_WORDS
 | EV_C_MINOR_PROMOTED_WORDS
@@ -135,22 +148,48 @@ let runtime_counter_name counter =
       "major_heap_pool_live_blocks"
   | EV_C_MAJOR_HEAP_LARGE_BLOCKS ->
       "major_heap_large_blocks"
-  | EV_C_MAJOR_HEAP_WORDS ->
-      "major_heap_words"
-  | EV_C_MAJOR_ALLOCATED_WORDS ->
-      "major_allocated_words"
-  | EV_C_MAJOR_ALLOCATED_WORK ->
-      "major_allocated_work"
-  | EV_C_MAJOR_DEPENDENT_WORK ->
-      "major_dependent_work"
-  | EV_C_MAJOR_EXTRA_WORK ->
-      "major_extra_work"
-  | EV_C_MAJOR_WORK_COUNTER ->
-      "major_work_counter"
-  | EV_C_MAJOR_ALLOC_COUNTER ->
-      "major_alloc_counter"
-  | EV_C_MAJOR_SLICE_TARGET ->
-      "major_slice_target"
+  | EV_C_MAJOR_ALLOCATED_ON_HEAP ->
+      "major_allocated_on_heap"
+  | EV_C_MAJOR_ALLOCATED_OFF_HEAP ->
+      "major_allocated_off_heap"
+  | EV_C_MAJOR_ALLOCATED_EPHE ->
+      "major_allocated_ephe"
+  | EV_C_MAJOR_ALLOCATED_DIRECT_ON_HEAP ->
+      "major_allocated_direct_on_heap"
+  | EV_C_MAJOR_ALLOCATED_DIRECT_OFF_HEAP ->
+      "major_allocated_direct_off_heap"
+  | EV_C_MAJOR_ALLOCATED_DIRECT_EPHE ->
+      "major_allocated_direct_ephe"
+  | EV_C_MAJOR_ALLOCATED_SUSPENDED_ON_HEAP ->
+      "major_allocated_suspended_on_heap"
+  | EV_C_MAJOR_ALLOCATED_SUSPENDED_OFF_HEAP ->
+      "major_allocated_suspended_off_heap"
+  | EV_C_MAJOR_ALLOCATED_SUSPENDED_EPHE ->
+      "major_allocated_suspended_ephe"
+  | EV_C_MAJOR_ALLOCATED_RESUMED_ON_HEAP ->
+      "major_allocated_resumed_on_heap"
+  | EV_C_MAJOR_ALLOCATED_RESUMED_OFF_HEAP ->
+      "major_allocated_resumed_off_heap"
+  | EV_C_MAJOR_ALLOCATED_RESUMED_EPHE ->
+      "major_allocated_resumed_ephe"
+  | EV_C_MAJOR_WORK_ON_HEAP ->
+      "major_work_on_heap"
+  | EV_C_MAJOR_WORK_OFF_HEAP ->
+      "major_work_off_heap"
+  | EV_C_MAJOR_WORK_EPHE ->
+      "major_work_ephe"
+  | EV_C_MAJOR_ALLOC_ON_HEAP ->
+      "major_alloc_on_heap"
+  | EV_C_MAJOR_ALLOC_OFF_HEAP ->
+      "major_alloc_off_heap"
+  | EV_C_MAJOR_ALLOC_EPHE ->
+      "major_alloc_ephe"
+  | EV_C_MAJOR_SLICE_TARGET_ON_HEAP ->
+      "major_slice_target_on_heap"
+  | EV_C_MAJOR_SLICE_TARGET_OFF_HEAP ->
+      "major_slice_target_off_heap"
+  | EV_C_MAJOR_SLICE_TARGET_EPHE ->
+      "major_slice_target_ephe"
   | EV_C_MAJOR_SLICE_BUDGET ->
       "major_slice_budget"
 
